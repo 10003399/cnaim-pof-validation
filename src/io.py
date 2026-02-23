@@ -1,7 +1,11 @@
 import pandas as pd
 
 def load_assets(path):
-    return pd.read_csv(path)
+    df = pd.read_csv(path)
+    assert "asset_id" in df.columns
+    return df
 
 def load_failures(path):
-    return pd.read_csv(path)
+    df = pd.read_csv(path)
+    assert "asset_id" in df.columns
+    return df
