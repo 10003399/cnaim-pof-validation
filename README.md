@@ -1,4 +1,9 @@
+
+
 # CNAIM Probability of Failure Validation
+
+## About
+This project was developed as a self-initiated study inspired by asset performance analytics in electrical distribution networks.
 
 **Reliability Analysis of Electrical Network Assets**
 
@@ -6,6 +11,10 @@
 
 ## Key Result
 Validated CNAIM failure probabilities against observed data and implemented a calibrated risk ranking framework for electrical network assets.
+
+## Workflow Overview
+
+CNAIM Model → Data Validation → Asset Exposure Modelling → Reliability Analysis → Model Calibration → Risk Ranking
 
 ## Project Background
 
@@ -93,6 +102,13 @@ A global calibration factor was derived to adjust PoF estimates toward observed 
 
 ---
 
+## Results Summary
+
+- Weibull analysis showed strong age-dependent failure behaviour (β ≈ 5.9)
+- CNAIM underestimated cable failure risk under local conditions
+- Calibration improved alignment between predicted and observed failures
+- Risk ranking framework identified high-priority assets for maintenance planning
+
 ## Key Outcomes
 
 * Construction of a reproducible reliability analysis workflow
@@ -142,11 +158,10 @@ The workflow mirrors real asset performance analysis performed within power syst
 ---
 
 ## Future Work
-
-* Asset-level risk ranking
-* Environmental and loading factor modelling
-* Adva
-
+- Environmental and loading factor modelling
+- Hybrid CNAIM + Machine Learning risk model
+- Automated calibration pipeline
+- Interactive decision-support dashboard
 
 A risk ranking framework was implemented combining calibrated Probability of Failure with estimated consequence factors. The resulting risk score enables prioritization of maintenance actions and supports risk-based asset management decisions.
 

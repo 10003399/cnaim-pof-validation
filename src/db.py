@@ -10,3 +10,7 @@ def load_csv_to_sqlite(csv_path: str, table: str, conn):
     df = pd.read_csv(csv_path)
     df.to_sql(table, conn, if_exists="replace", index=False)
     return df
+
+def write_df(df, table: str, conn):
+    df.to_sql(table, conn, if_exists="replace", index=False)
+
