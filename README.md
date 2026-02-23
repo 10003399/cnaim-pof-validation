@@ -4,6 +4,9 @@
 
 ---
 
+## Key Result
+Validated CNAIM failure probabilities against observed data and implemented a calibrated risk ranking framework for electrical network assets.
+
 ## Project Background
 
 Electric power distribution networks rely on risk models to ensure reliable electricity delivery while optimizing maintenance investments. One commonly used framework is **CNAIM (Common Network Asset Indices Methodology)**, which estimates the **Probability of Failure (PoF)** and associated asset risk.
@@ -146,3 +149,10 @@ The workflow mirrors real asset performance analysis performed within power syst
 
 
 A risk ranking framework was implemented combining calibrated Probability of Failure with estimated consequence factors. The resulting risk score enables prioritization of maintenance actions and supports risk-based asset management decisions.
+
+## What This Project Demonstrates
+- Reliability engineering
+- Statistical modelling
+- Survival analysis
+- Risk-based asset management
+- Predictive maintenance analytics
