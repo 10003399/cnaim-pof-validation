@@ -143,3 +143,6 @@ The workflow mirrors real asset performance analysis performed within power syst
 * Asset-level risk ranking
 * Environmental and loading factor modelling
 * Adva
+
+
+A risk ranking framework was implemented combining calibrated Probability of Failure with estimated consequence factors. The resulting risk score enables prioritization of maintenance actions and supports risk-based asset management decisions.
