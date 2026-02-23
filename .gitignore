@@ -5,3 +5,5 @@ __pycache__/
 .venv/
 .env
 *.pyc.DS_Store
+data/processed/cnaim.db
+

@@ -1,11 +1,13 @@
 import pandas as pd
 
-def load_assets(path):
+def load_assets(path: str) -> pd.DataFrame:
     df = pd.read_csv(path)
-    assert "asset_id" in df.columns
+    if "asset_id" not in df.columns:
+        raise ValueError("assets saknar kolumnen 'asset_id'")
     return df
 
-def load_failures(path):
+def load_failures(path: str) -> pd.DataFrame:
     df = pd.read_csv(path)
-    assert "asset_id" in df.columns
+    if "asset_id" not in df.columns:
+        raise ValueError("failures saknar kolumnen 'asset_id'")
     return df
