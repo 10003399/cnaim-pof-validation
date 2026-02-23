@@ -1,63 +1,145 @@
 # CNAIM Probability of Failure Validation
 
-## Project Overview
+**Reliability Analysis of Electrical Network Assets**
 
-This project evaluates how well the **CNAIM (Common Network Asset Indices Methodology)** model predicts failures in electrical network assets. The objective is to compare CNAIM’s calculated **Probability of Failure (PoF)** with observed historical failure data and assess whether the model accurately represents real network behavior.
+---
 
-## Purpose
+## Project Background
 
-Electric grid operators rely on risk models to prioritize maintenance and investments. By validating CNAIM predictions against empirical data, this project investigates:
+Electric power distribution networks rely on risk models to ensure reliable electricity delivery while optimizing maintenance investments. One commonly used framework is **CNAIM (Common Network Asset Indices Methodology)**, which estimates the **Probability of Failure (PoF)** and associated asset risk.
 
-* Whether CNAIM overestimates or underestimates failure risk
-* Differences between modeled and observed asset performance
-* Potential improvements for predictive and condition-based maintenance strategies
+This project investigates how well CNAIM predictions align with observed failure behaviour by analysing historical asset and failure data using statistical reliability methods.
+
+---
+
+## Project Objective
+
+The primary objective is to validate and calibrate CNAIM failure probabilities by comparing:
+
+* Model-predicted failure risk (CNAIM PoF)
+* Empirically observed failure statistics
+* Age-dependent reliability behaviour
+
+The goal is to determine whether the model accurately represents real operational conditions and to identify opportunities for improved predictive maintenance.
+
+---
 
 ## Methodology
 
-1. **Data Preparation**
+### 1. Data Preparation
 
-   * Load asset information and failure history
-   * Validate data quality and structure
-   * Construct an *asset-years* exposure dataset
+* Asset inventory and failure history were imported and validated.
+* Data quality checks ensured unique asset identifiers and consistent time information.
+* An **asset-years exposure dataset** was constructed, where each row represents one asset operating during one year of service.
 
-2. **Failure Analysis**
+This exposure modelling step enables statistically correct estimation of failure rates.
 
-   * Calculate observed failure rates per asset type
-   * Aggregate exposure time and failure counts
-   * Compare empirical failure probability with CNAIM PoF
+---
 
-3. **Model Evaluation**
+### 2. Observed Failure Analysis
 
-   * Visual comparison of modeled vs observed risk
-   * Quantification of model error
-   * Identification of systematic deviations
+Observed failure intensity was calculated as:
+
+Observed Failure Rate = Total Failures / Total Exposure Time
+
+Failure behaviour was aggregated by asset category to enable comparison with CNAIM PoF values.
+
+---
+
+### 3. Reliability Modelling
+
+Two complementary reliability approaches were applied:
+
+#### Weibull Reliability Analysis
+
+A Weibull distribution was fitted to failure ages to characterize degradation behaviour.
+
+Results indicated:
+
+* **β ≈ 5.9** → strongly age-dependent failures
+* Failure risk increases rapidly with asset ageing
+* Evidence of wear-out dominated failure mechanisms
+
+This supports the use of predictive or condition-based maintenance strategies.
+
+---
+
+#### Kaplan–Meier Survival Analysis
+
+Survival analysis was used to correctly incorporate assets that have **not yet failed** (censored observations).
+
+Outputs include:
+
+* Survival probability over asset lifetime
+* Median survival estimation
+* Realistic reliability representation of the asset population
+
+---
+
+### 4. CNAIM Model Calibration
+
+Empirical failure rates were compared with CNAIM PoF predictions.
+
+Key findings:
+
+* Cable assets showed higher observed failure rates than predicted by CNAIM.
+* A calibration factor (~2.25) suggests CNAIM underestimates cable failure risk under local conditions.
+* Other asset classes contained insufficient failure observations for statistically reliable calibration.
+
+A global calibration factor was derived to adjust PoF estimates toward observed network behaviour.
+
+---
+
+## Key Outcomes
+
+* Construction of a reproducible reliability analysis workflow
+* Validation of model assumptions against operational data
+* Identification of ageing-driven failure mechanisms
+* Quantitative calibration approach for risk models
+* Foundation for predictive maintenance prioritization
+
+---
 
 ## Repository Structure
 
 ```
-src/            Core analysis modules
-notebooks/      Exploratory analysis and validation workflow
+src/            Analysis modules and reusable functions
+notebook/       Exploratory analysis and modelling workflow
 data/
-  raw/          Local input data (not tracked)
+  raw/          Local input data (not version controlled)
   processed/    Generated analysis datasets
+reports/        Figures and analytical outputs
 tests/          Validation tests
-reports/        Figures and analysis summaries
 ```
 
-## Key Output
+---
 
-* Asset-years exposure dataset
-* Observed failure rate estimates
-* CNAIM model validation results
-* Visual calibration comparison
-
-## Technologies
+## Technologies Used
 
 * Python
 * pandas
+* NumPy
+* SciPy
+* lifelines (survival analysis)
 * matplotlib
 * JupyterLab
+* Git / GitHub
 
-## Status
+---
 
-Phase 1 completed: data validation, exposure modeling, and initial CNAIM comparison.
+## Engineering Relevance
+
+The workflow mirrors real asset performance analysis performed within power system operators and infrastructure companies. The methods support:
+
+* Risk-based maintenance planning
+* Asset life estimation
+* Investment prioritization
+* Reliability-centred decision making
+
+---
+
+## Future Work
+
+* Asset-level risk ranking
+* Environmental and loading factor modelling
+* Adva
