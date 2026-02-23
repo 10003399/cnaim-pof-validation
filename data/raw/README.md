@@ -1,0 +1,14 @@
+ASSETS
+asset_id
+asset_type
+installation_year
+location
+environment
+cnaim_pof
+
+FAILURES
+failure_id
+asset_id
+failure_date
+failure_type
+duration
